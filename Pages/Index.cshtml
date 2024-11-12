@@ -2,6 +2,7 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+
 }
 
 <div class="text-center">
@@ -12,30 +13,66 @@
             <th>Varm Ret</th>
             <th>Kold Ret</th>
         </tr>
+        @foreach (var menuItem in Model.MenuItems)
+        {
         <tr>
-            <td>Mandag</td>
-            <td>Lasagne</td>
-            <td>Koldskål</td>
+            <td>@menuItem.RowKey</td>
+            <td>@menuItem.VarmRet</td>
+            <td>@menuItem.KoldRet</td>
         </tr>
-        <tr>
-            <td>Tirsdag</td>
-            <td>Pasta</td>
-            <td>Salat</td>
-        </tr>
-        <tr>
-            <td>Onsdag</td>
-            <td>Pizza</td>
-            <td>Rugbrød</td>
-        </tr>
-        <tr>
-            <td>Torsdag</td>
-            <td>Kebab</td>
-            <td>Toast</td>
-        </tr>
-        <tr>
-            <td>Fredag</td>
-            <td>Kylling</td>
-            <td>Havregryn</td>
-        </tr>
+            
+        }
+   
     </table>
 </div>
+
+<style>
+    .text-center {
+        text-align: center;
+        margin: 20px auto;
+    }
+
+    .display-4 {
+        font-size: 2.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 80%;
+        margin: 0 auto;
+        border-collapse: collapse;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 12px 15px;
+        text-align: center;
+    }
+
+    th {
+        background-color: #4CAF50;
+        color: white;
+        font-weight: bold;
+        border-bottom: 2px solid #ddd;
+    }
+
+    td {
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    tr:hover {
+        background-color: #f1f1f1;
+    }
+
+    h1.display-4 {
+        color: #333;
+        font-family: Arial, sans-serif;
+    }
+
+</style>
